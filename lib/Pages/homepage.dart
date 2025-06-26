@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_try/logic/solution.dart';
 import 'package:flutter_web_try/utils/calc_buttons.dart';
 import 'package:flutter_web_try/utils/number_buttons.dart';
 
@@ -95,7 +96,9 @@ void onPressed(String val) {
                         })),
                         Expanded(child: CalcButton(val: '=', onPressed: () {
                           setState(() {
-                            _displayText = _displayText;
+                            Solution solver = Solution();
+                            double result = solver.evaluate(_displayText);
+                            _displayText = result.toString();
                           });
                         })),
                         
